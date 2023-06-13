@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../src/Cardform.css';
-import Cardfront from './Cardfront';
-import Cardback from './Cardback';
+import Cardfront from './CardComponents/Cardfront';
+import Cardback from './CardComponents/Cardback';
 
 
 function Cardform() {

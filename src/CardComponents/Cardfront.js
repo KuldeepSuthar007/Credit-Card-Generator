@@ -1,7 +1,7 @@
 import React from 'react'
-import '../src/Cardfront.css';
-import Ellipse1 from '../src/image/Ellipse1.png';
-import Ellipse2 from '../src/image/Ellipse2.png';
+import '../CardComponents/Cardfront.css';
+import Ellipse1 from '../image/Ellipse1.png';
+import Ellipse2 from '../image/Ellipse2.png';
 
 
 function Cardfront({ data }) {

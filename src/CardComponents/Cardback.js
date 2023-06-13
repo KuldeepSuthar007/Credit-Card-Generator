@@ -1,5 +1,5 @@
 import React from 'react'
-import '../src/Cardback.css';
+import '../CardComponents/Cardback.css';
 
 function Cardback(props) {
     return (
