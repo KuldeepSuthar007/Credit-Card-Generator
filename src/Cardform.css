@@ -104,6 +104,7 @@ form div {
   border-radius: 6px;
   padding: 2px;
   padding-left: 18px;
+  font-size: 18px;
 }
 .crd-date {
   padding-bottom: 4px;
@@ -130,6 +131,7 @@ form div {
   border-radius: 6px;
   padding: 2px;
   padding-left: 18px;
+  font-size: 18px;
 }
 
 .crd-cvc {
@@ -155,6 +157,7 @@ form div {
   border-radius: 6px;
   padding: 2px;
   padding-left: 18px;
+  font-size: 18px;
 }
 
 .expiry {
@@ -203,7 +206,29 @@ form div {
 
   color: #f81212;
 }
-
+.toast-message {
+  color: red;
+  /* background: darkblue; */
+  /* background-color: linear-gradient(
+      26.99deg,
+      rgba(69, 26, 78, 0.2) 52.61%,
+      rgba(60, 13, 13, 0.2) 95.07%
+    ),
+    linear-gradient(
+      164.67deg,
+      rgba(22, 4, 31, 0.98) 4.47%,
+      #380c4a 15.5%,
+      #3b0e46 19.19%,
+      #3d0f42 23.38%,
+      #441436 30.26%,
+      #33254e 36.4%,
+      #2b2d59 42.79%,
+      #292654 47.99%,
+      #271f4f 52.8%,
+      #240d37 64.72%,
+      #22052d 79.1%
+    ); */
+}
 @media only screen and (min-width: 1030px) and (max-width: 1366px) {
   .card {
     top: 65px;
