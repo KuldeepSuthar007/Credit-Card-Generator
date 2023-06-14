@@ -7,7 +7,6 @@ import Ellipse2 from '../image/Ellipse2.png';
 function Cardfront({ data }) {
     return (
         <>
-
             <div className='Ellipse'>
                 <img src={Ellipse1} alt="" />
                 <img src={Ellipse2} alt="" style={{ marginLeft: "20px" }} />
@@ -15,8 +14,8 @@ function Cardfront({ data }) {
 
             <p className='discardnum'>{data.cardholdernumber}</p>
             <div className='card-bottom'>
-                <p>{data?.cardholdername}</p>
-                <p>{data?.month}/{data?.year}</p>
+                <p>{data.cardholdername}</p>
+                <p>{data.month}/{data.year}</p>
             </div>
 
         </>

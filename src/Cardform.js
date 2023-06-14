@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import '../src/Cardform.css';
+import { ToastContainer, toast } from "react-toastify";
 import Cardfront from './CardComponents/Cardfront';
 import Cardback from './CardComponents/Cardback';
-
-import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import '../src/Cardform.css';
 
 
 function Cardform() {
@@ -20,49 +19,19 @@ function Cardform() {
     });
 
 
-    const showToastMessage = (msg) => {
-
-
+    const ToastMessages = (msg) => {
         if (msg === "succeed") {
-            toast('Card Successfully Created!', {
+            toast('Card Successfully Created !', {
                 position: toast.POSITION.TOP_CENTER,
                 className: 'toast-message'
             });
         }
         else if (msg === "errored") {
-            toast.error('Please Enter Valid Details!', {
+            toast.error('Please Enter Valid Details !', {
                 position: toast.POSITION.TOP_CENTER,
             })
         }
     };
-
-    const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({ ...values, [name]: value.toUpperCase() }))
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        validateform()
-        console.log("submit")
-    }
-
-    function validateform() {
-        if (inputs.cardholdername.length === 0 || inputs.cardholdernumber.length === 0 || inputs.month.length === 0 || inputs.year.length === 0 || inputs.cvc.length === 0 || inputs.cardholdername.length >= 30 || inputs.cardholdernumber.length < 19 || inputs.cvc.length < 3 || inputs.month.length < 2 || inputs.year.length < 2 || !inputs.cvc.match(/^[0-9]+$/) || !inputs.cardholdernumber.match(/^[0-9\s]*$/) || !inputs.month.match(/^[0-9]+$/) || !inputs.year.match(/^[0-9]+$/)) {
-            setError(true);
-            showToastMessage("errored")
-            console.log("validate if statement")
-        }
-        else {
-            setError(false)
-            showToastMessage("succeed")
-            console.log("validate else statement")
-            console.log(inputs)
-            setValid(true)
-
-        }
-    }
 
     function cardnum_format(cardnumber) {
         const v = cardnumber
@@ -78,6 +47,30 @@ function Cardform() {
         return parts.length > 1 ? parts.join(" ") : cardnumber;
     }
 
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({ ...values, [name]: value.toUpperCase() }))
+    }
+
+    function validateForm() {
+        if (inputs.cardholdername.length === 0 || inputs.cardholdernumber.length === 0 || inputs.month.length === 0 || inputs.year.length === 0 || inputs.cvc.length === 0 || inputs.cardholdername.length >= 30 || inputs.cardholdernumber.length < 19 || inputs.cvc.length < 3 || inputs.month.length < 2 || inputs.year.length < 2 || !inputs.cvc.match(/^[0-9]+$/) || !inputs.cardholdernumber.match(/^[0-9\s]*$/) || !inputs.month.match(/^[0-9]+$/) || !inputs.year.match(/^[0-9]+$/)) {
+            setError(true);
+            ToastMessages("errored")
+        }
+        else {
+            setError(false)
+            ToastMessages("succeed")
+            setValid(true)
+        }
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        validateForm()
+    }
+
+
     return (
         <>
             <ToastContainer />
@@ -92,7 +85,7 @@ function Cardform() {
                             {/*card name */}
                             <div className='card-n'>
                                 <label htmlFor="">CARDHOLDER NAME</label>
-                                <input type="text" required placeholder='e.g. Jane Appleseed' name="cardholdername" value={inputs.cardholdername} onChange={handleChange} />
+                                <input type="text" required placeholder='e.g. Jane Appleseed' name="cardholdername" value={inputs.cardholdername} onChange={handleChange} autoComplete='off' />
                                 <p className='error'>{error && inputs.cardholdername.length <= 0 ? "Cardholder name required" : error && inputs.cardholdername.length >= 30 ? "card number max character 30" : ""}</p>
                             </div>
                         </div>

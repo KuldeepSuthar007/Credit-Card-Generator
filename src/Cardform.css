@@ -207,9 +207,9 @@ form div {
   color: #f81212;
 }
 .toast-message {
-  color: red;
-  /* background: darkblue; */
-  /* background-color: linear-gradient(
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(
       26.99deg,
       rgba(69, 26, 78, 0.2) 52.61%,
       rgba(60, 13, 13, 0.2) 95.07%
@@ -227,7 +227,7 @@ form div {
       #271f4f 52.8%,
       #240d37 64.72%,
       #22052d 79.1%
-    ); */
+    );
 }
 @media only screen and (min-width: 1030px) and (max-width: 1366px) {
   .card {
