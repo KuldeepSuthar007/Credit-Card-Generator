@@ -54,7 +54,7 @@ function Cardform() {
     }
 
     function validateForm() {
-        if (inputs.cardholdername.length === 0 || inputs.cardholdernumber.length === 0 || inputs.month.length === 0 || inputs.year.length === 0 || inputs.cvc.length === 0 || inputs.cardholdername.length >= 30 || inputs.cardholdernumber.length < 19 || inputs.cvc.length < 3 || inputs.month.length < 2 || inputs.year.length < 2 || !inputs.cvc.match(/^[0-9]+$/) || !inputs.cardholdernumber.match(/^[0-9\s]*$/) || !inputs.month.match(/^[0-9]+$/) || !inputs.year.match(/^[0-9]+$/)) {
+        if (inputs.cardholdername.length === 0 || inputs.cardholdernumber.length === 0 || inputs.month.length === 0 || inputs.year.length === 0 || inputs.cvc.length === 0 || inputs.cardholdername.length >= 30 || inputs.cardholdernumber.length < 19 || inputs.cvc.length < 3 || inputs.month.length < 2 || inputs.year.length < 2 || !inputs.cardholdername.match(/^[A-Za-z]+$/) || !inputs.cvc.match(/^[0-9]+$/) || !inputs.cardholdernumber.match(/^[0-9\s]*$/) || !inputs.month.match(/^[0-9]+$/) || !inputs.year.match(/^[0-9]+$/)) {
             setError(true);
             ToastMessages("errored")
         }
@@ -86,7 +86,7 @@ function Cardform() {
                             <div className='card-n'>
                                 <label htmlFor="">CARDHOLDER NAME</label>
                                 <input type="text" required placeholder='e.g. Jane Appleseed' name="cardholdername" value={inputs.cardholdername} onChange={handleChange} autoComplete='off' />
-                                <p className='error'>{error && inputs.cardholdername.length <= 0 ? "Cardholder name required" : error && inputs.cardholdername.length >= 30 ? "card number max character 30" : ""}</p>
+                                <p className='error'>{error && inputs.cardholdername.length <= 0 ? "Cardholder name required" : error && !inputs.cardholdername.match(/^[A-Za-z]+$/) ? "Cardname must be alphabetic" : error && inputs.cardholdername.length >= 30 ? "card number max character 30" : ""}</p>
                             </div>
                         </div>
                         <div >
